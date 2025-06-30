@@ -1,6 +1,7 @@
 # ⚡ Fast Prep AI Assistant For DSA
 
-![Live Demo] (https://img.shields.io/badge/TRY_LIVE_DEMO-%20FAST_PREP_AI-blue?style=for-the-badge)](https://prakharmishra263139.github.io/FAST_PREP_AI/)
+![Live Demo](https://img.shields.io/badge/TRY_LIVE_DEMO-%20FAST_PREP_AI-blue?style=for-the-badge)](https://prakharmishra263139.github.io/FAST_PREP_AI/)
+
 ![Demo GIF](./assets/demo.gif) *(Add a short demo GIF if possible)*
 
 ## 🎯 Built for Graduates Who Need Fast DSA Revision
