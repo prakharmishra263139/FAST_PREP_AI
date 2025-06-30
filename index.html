@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSA Instructor Bot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta name="description" content="Interactive AI-powered DSA Tutor. Learn Data Structures & Algorithms the smart way.">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <i class="fas fa-robot"></i>
+          <h2>DSA Topics</h2>
+          <button class="close-sidebar" id="closeSidebar">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="sidebar-content">
+        <div class="search-container">
+          <input type="text" id="topicSearch" placeholder="Search topics...">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="topic-section">
+          <h3><i class="fas fa-database"></i> Data Structures</h3>
+          <ul>
+            <!-- Arrays -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Arrays">
+                  <i class="fas fa-bars"></i> Arrays
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="What is an array and its time complexity for common operations?">Arrays Basics</button></li>
+                  <li><button class="question-btn" data-topic="How to implement dynamic arrays?">Dynamic Arrays</button></li>
+                  <li><button class="question-btn" data-topic="Explain the two-pointer technique with examples">Two-pointer Technique</button></li>
+                  <li><button class="question-btn" data-topic="How to find duplicates in an array?">Find Duplicates</button></li>
+                  <li><button class="question-btn" data-topic="Explain Kadane's algorithm for maximum subarray sum">Kadane's Algorithm</button></li>
+                  <li><button class="question-btn" data-topic="How to rotate an array efficiently?">Array Rotation</button></li>
+                  <li><button class="question-btn" data-topic="What are sliding window problems? Give examples">Sliding Window</button></li>
+                  <li><button class="question-btn" data-topic="How to solve the Dutch national flag problem?">Dutch Flag Problem</button></li>
+                  <li><button class="question-btn" data-topic="Explain merge intervals pattern with examples">Merge Intervals</button></li>
+                  <li><button class="question-btn" data-topic="How to find missing numbers in an array?">Missing Numbers</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Linked Lists -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Linked Lists">
+                  <i class="fas fa-link"></i> Linked Lists
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Explain singly vs doubly linked lists">Types of Linked Lists</button></li>
+                  <li><button class="question-btn" data-topic="How to detect a cycle in a linked list?">Cycle Detection</button></li>
+                  <li><button class="question-btn" data-topic="How to reverse a linked list?">Reverse Linked List</button></li>
+                  <li><button class="question-btn" data-topic="How to find the middle of a linked list?">Find Middle</button></li>
+                  <li><button class="question-btn" data-topic="Merge two sorted linked lists">Merge Linked Lists</button></li>
+                  <li><button class="question-btn" data-topic="Remove Nth node from end of list">Remove Nth Node</button></li>
+                  <li><button class="question-btn" data-topic="Add two numbers represented as linked lists">Add Two Numbers</button></li>
+                  <li><button class="question-btn" data-topic="Intersection point of two linked lists">Intersection Point</button></li>
+                  <li><button class="question-btn" data-topic="LRU Cache implementation using linked list">LRU Cache</button></li>
+                  <li><button class="question-btn" data-topic="Palindrome linked list check">Palindrome Check</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Stacks -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Stacks">
+                  <i class="fas fa-layer-group"></i> Stacks
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Stack implementation and operations">Stack Basics</button></li>
+                  <li><button class="question-btn" data-topic="How to implement stack using array?">Array Implementation</button></li>
+                  <li><button class="question-btn" data-topic="Valid parentheses problem">Valid Parentheses</button></li>
+                  <li><button class="question-btn" data-topic="Min stack problem">Min Stack</button></li>
+                  <li><button class="question-btn" data-topic="Evaluate postfix expressions">Postfix Evaluation</button></li>
+                  <li><button class="question-btn" data-topic="Infix to postfix conversion">Infix to Postfix</button></li>
+                  <li><button class="question-btn" data-topic="Next greater element problem">Next Greater Element</button></li>
+                  <li><button class="question-btn" data-topic="Stock span problem">Stock Span</button></li>
+                  <li><button class="question-btn" data-topic="Largest rectangle in histogram">Largest Rectangle</button></li>
+                  <li><button class="question-btn" data-topic="Implement queue using stacks">Queue with Stacks</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Queues -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Queues">
+                  <i class="fas fa-people-arrows"></i> Queues
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Queue implementation and operations">Queue Basics</button></li>
+                  <li><button class="question-btn" data-topic="How to implement queue using array?">Array Implementation</button></li>
+                  <li><button class="question-btn" data-topic="Circular queue implementation">Circular Queue</button></li>
+                  <li><button class="question-btn" data-topic="Priority queue vs heap">Priority Queue</button></li>
+                  <li><button class="question-btn" data-topic="Implement stack using queues">Stack with Queues</button></li>
+                  <li><button class="question-btn" data-topic="Sliding window maximum problem">Sliding Window Max</button></li>
+                  <li><button class="question-btn" data-topic="First non-repeating character in stream">Non-repeating Character</button></li>
+                  <li><button class="question-btn" data-topic="Breadth-first search (BFS) with queue">BFS Algorithm</button></li>
+                  <li><button class="question-btn" data-topic="Level order traversal of binary tree">Level Order Traversal</button></li>
+                  <li><button class="question-btn" data-topic="Recent counter problem">Recent Counter</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Trees -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Trees">
+                  <i class="fas fa-project-diagram"></i> Trees
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Tree terminology and properties">Tree Basics</button></li>
+                  <li><button class="question-btn" data-topic="Binary tree vs binary search tree">Binary Trees</button></li>
+                  <li><button class="question-btn" data-topic="Tree traversal techniques (inorder, preorder, postorder)">Tree Traversals</button></li>
+                  <li><button class="question-btn" data-topic="Level order traversal (BFS)">Level Order</button></li>
+                  <li><button class="question-btn" data-topic="Height/depth of a tree">Tree Height</button></li>
+                  <li><button class="question-btn" data-topic="Check if tree is balanced">Balanced Tree</button></li>
+                  <li><button class="question-btn" data-topic="Lowest common ancestor (LCA)">LCA Problem</button></li>
+                  <li><button class="question-btn" data-topic="Serialize and deserialize binary tree">Serialize Tree</button></li>
+                  <li><button class="question-btn" data-topic="Construct tree from inorder and preorder">Tree Construction</button></li>
+                  <li><button class="question-btn" data-topic="Validate binary search tree">Validate BST</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Graphs -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Graphs">
+                  <i class="fas fa-share-alt"></i> Graphs
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Graph terminology and representations">Graph Basics</button></li>
+                  <li><button class="question-btn" data-topic="Breadth-first search (BFS)">BFS Algorithm</button></li>
+                  <li><button class="question-btn" data-topic="Depth-first search (DFS)">DFS Algorithm</button></li>
+                  <li><button class="question-btn" data-topic="Topological sorting">Topological Sort</button></li>
+                  <li><button class="question-btn" data-topic="Dijkstra's shortest path algorithm">Dijkstra's</button></li>
+                  <li><button class="question-btn" data-topic="Bellman-Ford algorithm">Bellman-Ford</button></li>
+                  <li><button class="question-btn" data-topic="Floyd-Warshall algorithm">Floyd-Warshall</button></li>
+                  <li><button class="question-btn" data-topic="Prim's and Kruskal's MST algorithms">MST Algorithms</button></li>
+                  <li><button class="question-btn" data-topic="Detect cycle in directed and undirected graphs">Cycle Detection</button></li>
+                  <li><button class="question-btn" data-topic="Strongly connected components (Kosaraju's)">Strongly Connected</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Hash Tables -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Hash Tables">
+                  <i class="fas fa-hashtag"></i> Hash Tables
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Hash table implementation and collision resolution">Hash Table Basics</button></li>
+                  <li><button class="question-btn" data-topic="Separate chaining vs open addressing">Collision Resolution</button></li>
+                  <li><button class="question-btn" data-topic="Design a hashmap from scratch">HashMap Design</button></li>
+                  <li><button class="question-btn" data-topic="Two sum problem">Two Sum</button></li>
+                  <li><button class="question-btn" data-topic="Group anagrams problem">Group Anagrams</button></li>
+                  <li><button class="question-btn" data-topic="Subarray sum equals K">Subarray Sum</button></li>
+                  <li><button class="question-btn" data-topic="First unique character in string">First Unique Char</button></li>
+                  <li><button class="question-btn" data-topic="Longest substring without repeating characters">Longest Substring</button></li>
+                  <li><button class="question-btn" data-topic="LRU cache implementation">LRU Cache</button></li>
+                  <li><button class="question-btn" data-topic="Count frequency of elements">Frequency Count</button></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="topic-section">
+          <h3><i class="fas fa-calculator"></i> Algorithms</h3>
+          <ul>
+            <!-- Sorting -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Sorting">
+                  <i class="fas fa-sort-amount-down"></i> Sorting
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Comparison of sorting algorithms">Sorting Comparison</button></li>
+                  <li><button class="question-btn" data-topic="Quick sort implementation and analysis">Quick Sort</button></li>
+                  <li><button class="question-btn" data-topic="Merge sort implementation and analysis">Merge Sort</button></li>
+                  <li><button class="question-btn" data-topic="Heap sort implementation">Heap Sort</button></li>
+                  <li><button class="question-btn" data-topic="Counting sort and its applications">Counting Sort</button></li>
+                  <li><button class="question-btn" data-topic="Radix sort explanation">Radix Sort</button></li>
+                  <li><button class="question-btn" data-topic="Sort colors problem (Dutch flag)">Sort Colors</button></li>
+                  <li><button class="question-btn" data-topic="Merge intervals problem">Merge Intervals</button></li>
+                  <li><button class="question-btn" data-topic="Non-overlapping intervals problem">Non-overlapping</button></li>
+                  <li><button class="question-btn" data-topic="Kth largest element in array">Kth Largest</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Searching -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Searching">
+                  <i class="fas fa-search"></i> Searching
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Binary search implementation">Binary Search</button></li>
+                  <li><button class="question-btn" data-topic="Find first/last occurrence in sorted array">First/Last Occurrence</button></li>
+                  <li><button class="question-btn" data-topic="Search in rotated sorted array">Rotated Array Search</button></li>
+                  <li><button class="question-btn" data-topic="Find peak element in array">Peak Element</button></li>
+                  <li><button class="question-btn" data-topic="Median of two sorted arrays">Median of Arrays</button></li>
+                  <li><button class="question-btn" data-topic="Find minimum in rotated sorted array">Min in Rotated</button></li>
+                  <li><button class="question-btn" data-topic="Square root of number">Square Root</button></li>
+                  <li><button class="question-btn" data-topic="Search in 2D matrix">2D Matrix Search</button></li>
+                  <li><button class="question-btn" data-topic="Find K closest elements">K Closest</button></li>
+                  <li><button class="question-btn" data-topic="Find duplicate number">Duplicate Number</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Recursion -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Recursion">
+                  <i class="fas fa-infinity"></i> Recursion
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Recursion vs iteration">Recursion Basics</button></li>
+                  <li><button class="question-btn" data-topic="Factorial using recursion">Factorial</button></li>
+                  <li><button class="question-btn" data-topic="Fibonacci sequence">Fibonacci</button></li>
+                  <li><button class="question-btn" data-topic="Tower of Hanoi problem">Tower of Hanoi</button></li>
+                  <li><button class="question-btn" data-topic="Subsets/powerset problem">Subsets</button></li>
+                  <li><button class="question-btn" data-topic="Permutations of a string">Permutations</button></li>
+                  <li><button class="question-btn" data-topic="Combination sum problem">Combination Sum</button></li>
+                  <li><button class="question-btn" data-topic="Letter combinations of phone number">Phone Letters</button></li>
+                  <li><button class="question-btn" data-topic="Generate valid parentheses">Valid Parentheses</button></li>
+                  <li><button class="question-btn" data-topic="N-Queens problem">N-Queens</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Dynamic Programming -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Dynamic Programming">
+                  <i class="fas fa-bolt"></i> Dynamic Programming
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="DP vs recursion vs memoization">DP Basics</button></li>
+                  <li><button class="question-btn" data-topic="Fibonacci with memoization">Fibonacci DP</button></li>
+                  <li><button class="question-btn" data-topic="Climbing stairs problem">Climbing Stairs</button></li>
+                  <li><button class="question-btn" data-topic="House robber problem">House Robber</button></li>
+                  <li><button class="question-btn" data-topic="Longest increasing subsequence">LIS</button></li>
+                  <li><button class="question-btn" data-topic="Coin change problem">Coin Change</button></li>
+                  <li><button class="question-btn" data-topic="0/1 knapsack problem">Knapsack</button></li>
+                  <li><button class="question-btn" data-topic="Longest common subsequence">LCS</button></li>
+                  <li><button class="question-btn" data-topic="Edit distance problem">Edit Distance</button></li>
+                  <li><button class="question-btn" data-topic="Word break problem">Word Break</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Greedy Algorithms -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Greedy Algorithms">
+                  <i class="fas fa-hand-holding-usd"></i> Greedy Algorithms
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Greedy vs dynamic programming">Greedy Basics</button></li>
+                  <li><button class="question-btn" data-topic="Activity selection problem">Activity Selection</button></li>
+                  <li><button class="question-btn" data-topic="Fractional knapsack problem">Fractional Knapsack</button></li>
+                  <li><button class="question-btn" data-topic="Job sequencing problem">Job Sequencing</button></li>
+                  <li><button class="question-btn" data-topic="Huffman coding algorithm">Huffman Coding</button></li>
+                  <li><button class="question-btn" data-topic="Minimum coins problem">Minimum Coins</button></li>
+                  <li><button class="question-btn" data-topic="Maximum meetings in one room">Maximum Meetings</button></li>
+                  <li><button class="question-btn" data-topic="Minimum platforms problem">Minimum Platforms</button></li>
+                  <li><button class="question-btn" data-topic="Water connection problem">Water Connection</button></li>
+                  <li><button class="question-btn" data-topic="Minimum spanning tree (Prim's/Kruskal's)">MST</button></li>
+                </ul>
+              </div>
+            </li>
+            
+            <!-- Backtracking -->
+            <li class="topic-item">
+              <div class="topic-header">
+                <button class="topic-btn" data-topic="Backtracking">
+                  <i class="fas fa-undo"></i> Backtracking
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+              </div>
+              <div class="questions-dropdown">
+                <ul>
+                  <li><button class="question-btn" data-topic="Backtracking vs brute force">Backtracking Basics</button></li>
+                  <li><button class="question-btn" data-topic="N-Queens problem">N-Queens</button></li>
+                  <li><button class="question-btn" data-topic="Sudoku solver">Sudoku Solver</button></li>
+                  <li><button class="question-btn" data-topic="Subsets problem">Subsets</button></li>
+                  <li><button class="question-btn" data-topic="Permutations problem">Permutations</button></li>
+                  <li><button class="question-btn" data-topic="Combination sum problem">Combination Sum</button></li>
+                  <li><button class="question-btn" data-topic="Palindrome partitioning">Palindrome Partition</button></li>
+                  <li><button class="question-btn" data-topic="Word search problem">Word Search</button></li>
+                  <li><button class="question-btn" data-topic="Generate parentheses">Generate Parentheses</button></li>
+                  <li><button class="question-btn" data-topic="Rat in a maze problem">Rat in Maze</button></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="quick-actions">
+          <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+          <div class="action-buttons">
+            <button class="action-btn" id="clearChat"><i class="fas fa-trash"></i> Clear Chat</button>
+            <button class="action-btn" id="exampleBtn"><i class="fas fa-lightbulb"></i> Show Examples</button>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <div class="footer-links">
+            <a href="#" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+            <a href="#" target="_blank"><i class="fas fa-bug"></i> Report Issue</a>
+            <a href="#" target="_blank"><i class="fas fa-star"></i> Rate Us</a>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2025 FAST PREP AI. All rights reserved.</p>
+            <p>Created with <i class="fas fa-heart"></i> by Prakhar Mishra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="container">
+        <div class="header">
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="header-content">
+            <h1>FAST_PREP_AI Assistant for DSA <span class="bot-icon">🤖</span></h1>
+            <p>Start your revision journey with Fast Prep to Crack Your Next Big Dream.....</p>
+          </div>
+          <div class="header-actions">
+            <button class="header-btn" id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <button class="header-btn" id="helpBtn"><i class="fas fa-question"></i></button>
+          </div>
+        </div>
+
+        <div class="chat-window">
+          <div id="chat-log" class="chat-log">
+            <div class="message bot">
+              <div class="text">Hello. I am your DSA tutor. Ask me anything about Data Structures and Algorithms. Ask me anything else at your own risk.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-section">
+          <form id="chat-form" class="chat-form">
+            <div class="input-container">
+              <input type="text" id="userInput" placeholder="Ask a question about DSA..." autocomplete="off" required />
+              <button type="button" id="voiceBtn" class="voice-btn">
+                <i class="fas fa-microphone"></i>
+              </button>
+              <button type="submit" id="sendButton">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+            <div class="suggestions">
+              <span class="suggestion">Explain Binary Trees</span>
+              <span class="suggestion">What is Dijkstra's algorithm?</span>
+              <span class="suggestion">How does quicksort work?</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
